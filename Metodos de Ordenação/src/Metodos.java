@@ -2,7 +2,7 @@ public class Metodos {
     public static int[] bubbleSortv1(int[] vet) {
         int aux = 0;
         int iteracoes = 0;
-        int instrucoes = 0;
+        int instrucoes = 2;
         for (int i = 0; i < vet.length; i++) {
             iteracoes++;
             instrucoes += 4;
@@ -17,6 +17,8 @@ public class Metodos {
                 }
             }
         }
+        System.out.println("BubbleSort v1 >> Instruções: "+instrucoes);
+        System.out.println("BubbleSort v1 >> Iterações: "+iteracoes);
         return vet;
     }
 
@@ -24,7 +26,7 @@ public class Metodos {
         boolean trocou = true;
         int aux = 0;
         int iteracoes = 0;
-        int instrucoes = 0;
+        int instrucoes = 2;
         while (trocou) {
             iteracoes++;
             instrucoes += 3;
@@ -41,26 +43,38 @@ public class Metodos {
                 }
             }
         }
+        System.out.println("BubbleSort v2 >> Instruções: "+instrucoes);
+        System.out.println("BubbleSort v2 >> Iterações: "+iteracoes);
         return vet;
     }
 
-    public void insertionSort(int[] vet){
+    public static int[] insertionSort(int[] vet){
+        int iteracoes = 0;
+        int instrucoes = 2;
         int i, j, chave;
         for(j = 1; j<vet.length;j++){
+            iteracoes++;
             chave=vet[j];
             i = j - 1;
+            instrucoes+=12;
             while((i >= 0) && (vet[i] > chave)){
+                iteracoes++;
+                instrucoes+=6;
                 vet[i+1] = vet[i];
                 i = i - 1;
             }
             vet[i+1] = chave;
+            instrucoes+=3;
         }
+        System.out.println("InsertSort >> Instruções: "+instrucoes);
+        System.out.println("InsertSort >> Iterações: "+iteracoes);
+        return vet;
     }
 
-    public void mergeSort(int[] vet){
+    public static void mergeSort(int[] vet){
         mergeSort(vet, 0, vet.length-1);
     }
-    public void mergeSort(int [] vet, int inicio, int fim){
+    public static void mergeSort(int [] vet, int inicio, int fim){
         if(inicio < fim){
             int meio = (inicio + fim) / 2;
             mergeSort(vet, inicio, meio);
@@ -69,7 +83,7 @@ public class Metodos {
         }
     }
 
-    private void merge(int[] vet, int inicio, int meio, int fim){
+    private static void merge(int[] vet, int inicio, int meio, int fim){
         int nL = meio - inicio+1; int nR = fim - meio;
         int[] L = new int[nL]; int [] R = new int[nR];
         System.arraycopy(vet, inicio, L, 0, nL);
@@ -87,4 +101,3 @@ public class Metodos {
         }
         }
     }
-}

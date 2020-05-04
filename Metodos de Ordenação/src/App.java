@@ -1,7 +1,8 @@
-import java.security.interfaces.RSAMultiPrimePrivateCrtKey;
 import java.util.Arrays;
 import java.util.Random;
 public class App {
+
+    //Gerador de vetor e tempo
     public static int[] geraVetor(int nroElem, int lim){
         int dummy;
         int [] res = null;
@@ -30,41 +31,55 @@ public class App {
         res = ((double)tempoFim - (double)tempoIni) / (double)1000000000.0;
         return res;
     }
-    //Antes de chamar o método cujo tempo quer medir, chame
-//        initClock();
+
+//Main
+
+//Antes de chamar o método cujo tempo quer medir, chame
+//initClock();
 //Após a execução do método a ser medido, chame
 //        double res = getClockSec();
     public static void main(String[] args) {
+        int num0=10;
+        int[] vetor0=geraVetor(num0,1000);
         int num=1000;
         int[] vetor=geraVetor(num,1000);
-        int[] instrucao = Metodos.bubbleSortv1(vetor);
-        initClock();
-        int[] vetor2=geraVetor(num,1000);
-        int[] instrucao2 = Metodos.bubbleSortv2(vetor2);
-        initClock();
-        System.out.println("------Testes Solicitados------");
-        System.out.println("\nNumero de elementos: 1.000");
-        //System.out.println("Numero de instrucoes v1:"+Contagens.getInstrucoes(Metodos.bubbleSortv1(instrucao)));
-        System.out.println("Numero de iteracoes v1:");
-        System.out.println("Tempo v1:"+ getClockSec());
-        System.out.println("Numero de instrucoes v2:"+instrucao2);
-        System.out.println("Numero de iteracoes v2:");
-        System.out.println("Tempo v1:"+ getClockSec());
-
         int num2=100000;
-        int[] vetor3=geraVetor(num,100000);
-        int[] instrucao3 = Metodos.bubbleSortv1(vetor3);
+        int[] vetor2=geraVetor(num,100000);
+
+        System.out.println("------Testes Solicitados------");
+        System.out.println("\n -----BubbleSort-----");
+        System.out.println("Tempo BS v1: "+ getClockSec());
         initClock();
-        int[] vetor4=geraVetor(num,100000);
-        int[] instrucao4 = Metodos.bubbleSortv2(vetor4);
+        Metodos.bubbleSortv1(vetor);
+        System.out.println("Tempo BS v1: "+ getClockSec());
         initClock();
-        System.out.println("\nNumero de elementos: 100.000");
-        System.out.println("Numero de instrucoes v1:"+instrucao3);
-        System.out.println("Numero de iteracoes v1:");
-        System.out.println("Tempo v1:"+ getClockSec());
-        System.out.println("Numero de instrucoes v2:"+instrucao4);
-        System.out.println("Numero de iteracoes v2:");
-        System.out.println("Tempo v2:"+ getClockSec());
+        Metodos.bubbleSortv1(vetor2);
+
+        System.out.println("\nTempo BS v2: "+ getClockSec());
+        initClock();
+        Metodos.bubbleSortv2(vetor);
+        System.out.println("Tempo BS v2: "+ getClockSec());
+        initClock();
+        Metodos.bubbleSortv2(vetor2);
+
+        System.out.println("\n -----InsertionSort-----");
+        System.out.println("Tempo Insert: "+ getClockSec());
+        initClock();
+        Metodos.insertionSort(vetor);
+        System.out.println("Tempo Insert: "+ getClockSec());
+        initClock();
+        Metodos.insertionSort(vetor2);
+
+        System.out.println("\n------Merge Sort------ ");
+        System.out.println("Tempo vetor de 10 elem: "+ getClockSec());
+        initClock();
+        Metodos.mergeSort(vetor0);
+        System.out.println("Tempo vetor de 1.000 elem: "+ getClockSec());
+        initClock();
+        Metodos.mergeSort(vetor);
+        System.out.println("Tempo vetor de 100.000 elem: "+ getClockSec());
+        initClock();
+        Metodos.mergeSort(vetor2);
     }
 
 }
