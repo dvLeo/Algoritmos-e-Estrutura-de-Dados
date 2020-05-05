@@ -39,11 +39,11 @@ public class App {
 //        double res = getClockSec();
     public static void main(String[] args) {
         int num0=10;
-        int[] vetor0=geraVetor(num0,1000);
+        int[] vetor0=geraVetor(num0,10);
         int num=1000;
         int[] vetor=geraVetor(num,1000);
         int num2=100000;
-        int[] vetor2=geraVetor(num,100000);
+        int[] vetor2=geraVetor(num2,100000);
 
         System.out.println("------Testes Solicitados------");
         System.out.println("\n -----BubbleSort-----");
@@ -69,7 +69,7 @@ public class App {
         initClock();
         Metodos.insertionSort(vetor2);
 
-        System.out.println("\n------Merge Sort------ ");
+        System.out.println("\n------MergeSort------ ");
         System.out.println("Tempo vetor de 10 elem: "+ getClockSec());
         initClock();
         Metodos.mergeSort(vetor0);
@@ -79,6 +79,17 @@ public class App {
         System.out.println("Tempo vetor de 100.000 elem: "+ getClockSec());
         initClock();
         Metodos.mergeSort(vetor2);
+
+        System.out.println("\n------QuickSort------ ");
+        System.out.println("Tempo vetor de 10 elem: "+ getClockSec());
+        initClock();
+        Metodos.quickSort(vetor0,0,vetor0.length-1);
+        System.out.println("Tempo vetor de 1.000 elem: "+ getClockSec());
+        initClock();
+        Metodos.quickSort(vetor,0,vetor.length-1);
+        System.out.println("Tempo vetor de 100.000 elem: "+ getClockSec());
+        initClock();
+        Metodos.quickSort(vetor2,0,vetor2.length-1);
     }
 
 }

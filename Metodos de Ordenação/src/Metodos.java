@@ -99,5 +99,33 @@ public class Metodos {
             }
             else vet[k] = L[iL++];
         }
-        }
     }
+
+
+    public static void quickSort(int[] vet, int low, int high){
+        int pivot = 0;
+        if ((high-low) > 0)
+            pivot = partition(vet, low, high);
+            quickSort(vet, low, pivot-1);
+            quickSort(vet, pivot+1, high);
+    }
+
+    public static int partition(int [] vet, int low, int high) {
+        int i, p, firsthigh;
+        firsthigh = low;
+        p = high;
+        for (i = low; i < high; i++){
+            if (vet[i] < vet[p]){
+                int aux=vet[firsthigh];
+                vet[firsthigh]=vet[i];
+                vet[i]=aux;
+                firsthigh = firsthigh + 1;
+            }
+        }
+        int aux=vet[firsthigh];
+        vet[firsthigh]=vet[i];
+        vet[i]=aux;
+        return firsthigh;
+    }
+}
+
