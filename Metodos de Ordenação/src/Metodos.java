@@ -104,13 +104,14 @@ public class Metodos {
 
     public static void quickSort(int[] vet, int low, int high){
         int pivot = 0;
-        if ((high-low) > 0)
+        if ((high-low) > 0) {
             pivot = partition(vet, low, high);
-            quickSort(vet, low, pivot-1);
-            quickSort(vet, pivot+1, high);
+            quickSort(vet, low, pivot - 1);
+            quickSort(vet, pivot + 1, high);
+        }
     }
 
-    public static int partition(int [] vet, int low, int high) {
+    private static int partition(int [] vet, int low, int high) {
         int i, p, firsthigh;
         firsthigh = low;
         p = high;
