@@ -1,8 +1,8 @@
-//public class TestaArv {
+public class TestTree {
 //
 //    public static void main(String[] args) {
 //
-//        GeneralTreeLinked <String> arv1 = new GeneralTreeLinked<String>();
+//        Tree <String> arv1 = new Tree<String>();
 //
 //        String res;
 //
@@ -77,4 +77,4 @@
 //
 //    }
 //
-//}
+}
